@@ -23,3 +23,4 @@ haha! probably not what you think! actually, i will get back to this. first, let
 
 ![imgonline-com-ua-Negative-nZlejKCn83UXN](https://user-images.githubusercontent.com/114739901/201462075-3fa59d9f-0164-440e-bd15-5cb12e2a6f49.jpg)
 
+In this example, i've allocated memory in the heap for `x` and `y`. if i use `free(x)` or `free(y)`, it does not remove the allocated memory from the heap (this is the counterintuitive part)! Instead of 'deleting' the allocated chunk of memory from the heap, the heap manager will instead put the same chunk of memory into a cache and label it as "available for usage". This is scuffed! It is also optimal! the reusage and recycling of memory is what helps your computer not explode over time.
