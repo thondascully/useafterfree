@@ -16,7 +16,7 @@ which can be much larger than 8 megabytes. as a downside, it's slightly slower t
 
 what you need to know: dynamically allocating memory stores the 'information' in the heap instead of the stack (pictured below). to free this information stored in the heap, you use the `free()` function.
 
-![IMG_0274](https://user-images.githubusercontent.com/114739901/201461944-9b8fb959-10ff-44f5-ac70-4b77dca65a17.jpg)
+![imgonline-com-ua-Negative-4gopK6gZcTtQhf](https://user-images.githubusercontent.com/114739901/201462030-bd1b09a0-2615-4823-aeaf-5b010e4077ab.jpg)
 
 ### what does it mean to `free()` allocated memory?
 haha! probably not what you think! actually, i will get back to this. first, let me diagram a simplified version of allocating memory in heap:
