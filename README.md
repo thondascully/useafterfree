@@ -20,3 +20,6 @@ what you need to know: dynamically allocating memory stores the 'information' in
 
 ### what does it mean to `free()` allocated memory?
 haha! probably not what you think! actually, i will get back to this. first, let me diagram a simplified version of allocating memory in heap:
+
+![imgonline-com-ua-Negative-nZlejKCn83UXN](https://user-images.githubusercontent.com/114739901/201462075-3fa59d9f-0164-440e-bd15-5cb12e2a6f49.jpg)
+
