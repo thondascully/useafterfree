@@ -1,6 +1,6 @@
 # use after free() (c): how to exploit a flaw in glibc's heap management.
 
-### what is heap?
+### what is heap? Please read about [heap vs. stack](https://www.geeksforgeeks.org/stack-vs-heap-memory-allocation/) if unfamiliar. 
 ```
 your computer has storage (in this case, random access memory) which is always available for use by C executables. 
 any given program starts at a location in that 'storage', and the stack specific to that program grows from that location onwards. 
