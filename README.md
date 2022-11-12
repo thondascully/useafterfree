@@ -1,4 +1,4 @@
-# use after free() (c): how to exploit a flaw in glibc's heap management.
+# use after free(): how to exploit a flaw in glibc's heap management.
 
 ### what is heap? Please read about [heap vs. stack](https://www.geeksforgeeks.org/stack-vs-heap-memory-allocation/) if unfamiliar. 
 ```
