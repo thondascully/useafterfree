@@ -11,11 +11,11 @@ which can be much larger than 8 megabytes. as a downside, it's slightly slower t
 
 ### dynamically allocated memory: memory allocated during runtime. 
 
-`malloc(size_t size)` Allocates size bytes and returns that pointer to the programmer
+`malloc(size_t size)` Allocates size bytes and returns pointer
 
 `calloc(size_t, nmemb, size_t size)` Allocates nmemb*size bytes and zeros out the memory.
 
-`free(void *ptr)` Frees the heap space pointed by ptr
+`free(void *ptr)` Frees the heap space
 
 what you need to know: dynamically allocating memory stores the 'information' into the heap instead of the stack (pictured below). to "free" this information stored in the heap, you use the `free()` function.
 
