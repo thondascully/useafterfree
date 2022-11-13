@@ -15,7 +15,7 @@ which can be much larger than 8 megabytes. as a downside, it's slightly slower t
 
 `calloc(size_t, nmemb, size_t size)` Allocates nmemb*size bytes and zeros out the memory.
 
-`free(void *ptr)` Frees the heap space
+`free(void *ptr)` Frees the memory chunk indicated by pointer
 
 what you need to know: dynamically allocating memory stores the 'information' into the heap instead of the stack (pictured below). to "free" this information stored in the heap, you use the `free()` function.
 
