@@ -33,6 +33,8 @@ In this example, i've allocated memory in the heap, and the address to each resp
 
 > note: `x` and `y` are pointers to an arbitrary location (with a unique address) of 0x10 bytes of allocated memory in the heap
 
+> note: because information stored in the heap is stored in the RAM (usually volatile memory), everything in RAM will be lost when the computer is turned off. this is a way of "deleting" memory chunks stored in the heap through technicality. 
+
 each of these new locations on the heap has a unique address. dumbed down, you can imagine computer memory as a sequence of storage compartments called `memory cells`. each memory cell has a unique address (indicating its relative position in memory). most computers have millions of individual memory cells (each with their own unique address), and the information stored inside each cell is called the `contents` of the cell. **every memory cell has contents**, but normally we only know the information of the cells whose contents we replace manually (variable assignment, etc.) or are for example replaced by an automated process during compilation (stored program concept). 
 
 when you call `free(x)`, it does not _remove_ the memory chunk (with a unique address) from the heap. **instead, it stores the memory chunk in a cache (specific cache bin depends on byte size of chunk) and labels the chunk as 'available for usage', allowing for the same chunk and address to be used by another memory allocation process (pointers, etc.)**.
