@@ -40,3 +40,7 @@ each of these new locations on the heap has a unique address. dumbed down, you c
 when you call `free(x)`, it does not _remove_ the memory chunk (with a unique address) from the heap. **instead, it stores the memory chunk in a cache (specific cache bin depends on byte size of chunk) and labels the chunk as 'available for usage', allowing for the same chunk and address to be used by another memory allocation process (pointers, etc.)**.
 
 > note: the algorithm for `free()` first checks to see if the chunk before _or_ after the freed chunk is also freed (exists in cache). if this is the case, the chunk will merge with the other freed chunk to create a bigger freed chunk. if there are no neighboring freed chunks, the `free()` algorithm will then mark the freed chunk as "available for usage" and place it in its appropriate bin/cache based on its size.
+
+> note: different types of caches/bins exist. [tcache](https://sourceware.org/glibc/wiki/MallocInternals#Thread_Local_Cache_.28tcache.29) and [fast bins](https://sourceware.org/glibc/wiki/MallocInternals#Arenas_and_Heaps) are considered "in use", so they will not merge with adjacent freed chunks. 
+
+
