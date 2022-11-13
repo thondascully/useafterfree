@@ -18,7 +18,12 @@ what you need to know: dynamically allocating memory stores the 'information' in
 
 ![imgonline-com-ua-Negative-4gopK6gZcTtQhf](https://user-images.githubusercontent.com/114739901/201462030-bd1b09a0-2615-4823-aeaf-5b010e4077ab.jpg)
 
-(NOTE: this diagram is outdated for modern use. there are multiple program images present in memory address space (main program + libraries) which have their own data, text, bss, etc. sections. the above heap and stack model diagram above is managed by brk (and sbrk) system calls, called program break. It extends beyond the bss section of the program (where all unitialised globals live) and grows toward the stack)
+> note: this diagram is outdated for modern use. there are multiple program images present in memory address space (main program + libraries) which have 
+> their own data, text, bss, etc. sections. the above heap and stack model diagram above is managed by brk (and sbrk) system calls, called program break. 
+> it extends beyond the bss section of the program (where all unitialised globals live) and grows toward the stack. On modern systems, however, the 
+> location of the stack & heap is completly arbitrary, and they're usually in disconnected areas. This is more true on 64-bit systems, where big addresses 
+> (at least of 48-bits, sometimes up to 52-bits of meaningful data) allow for huge gaps between memory segments.
+
 
 ### what does it mean to `free()` allocated memory?
 haha! probably not what you think! actually, i will get back to this. first, let me diagram a simplified version of allocating memory in heap:
