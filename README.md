@@ -43,4 +43,7 @@ when you call `free(x)`, it does not _remove_ the memory chunk (with a unique ad
 
 > note: different types of caches/bins exist. [tcache](https://sourceware.org/glibc/wiki/MallocInternals#Thread_Local_Cache_.28tcache.29) and [fast bins](https://sourceware.org/glibc/wiki/MallocInternals#Arenas_and_Heaps) are considered "in use", so they will not merge with adjacent freed chunks. 
 
-a quick refresher on tcache: 
+### a refresher on tcache: 
+processes run with one or more threads at the same time. all threads in a specific process have access to the same heap, but each individual thread has access to its own stack (cool). **all threads have access to the same heap**. this can be an issue if one thread is writing to heap while another thread is reading from the same address at the same time. a simple solution to this is to use a [lock](https://en.wikipedia.org/wiki/Lock_(computer_science)), which is pretty much an activity boolean check before writing. unfortunately, this means there is a lot of stall time spent waiting for other operations to finish. while the stall time is minimal, the heap is always in use by all threads, so it can quickly add up to a slower program. 
+
+tcache (per-thread cache) is designed to use [per-thread arenas](https://siddhesh.in/posts/malloc-per-thread-arenas-in-glibc.html), which is the manager's solution to the problem described above. 
