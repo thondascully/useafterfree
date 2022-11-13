@@ -31,6 +31,8 @@ haha! probably not what you think! actually, i will get back to this. first, let
 
 In this example, i've allocated memory in the heap for `x` and `y`. if i use `free(x)` or `free(y)`, it does not _remove_ the allocated memory from the heap (this is the counterintuitive part)! Instead of _removing_ the allocated chunk of memory from the heap, the heap manager will put the same chunk of memory into a cache and label it as "available for usage". This is scuffed! It is also optimal! the reusage and recycling of memory is what helps your computer not explode over time.
 
+> note: `x` and `y` are pointers to an arbitrary location (with a unique address) of 0x10 bytes of allocated memory in the heap
+
 each of these new locations on the heap have a unique address. dumbed down, you can imagine computer memory as a sequence of storage compartments called `memory cells`. each memory cell has a unique address (indicating its relative position in memory). most computers have millions of individual memory cells (each with their own unique address), and the information stored inside each cell is called the `contents` of the cell. **every memory cell has contents**, but normally we only know the information of the cells whose contents we replace manually (variable assignment, etc.) or are for example replaced by an automated process during compilation (stored program concept). 
 
 when you call `free(x)`, it does not _remove_ the memory chunk (with a unique address) from the heap. **instead, it stores the memory chunk in a cache (specific cache bin depends on byte size of chunk) and labels the chunk as 'available for usage', allowing for the same chunk and address to be used by another memory allocation process (pointers, etc.)**.
