@@ -17,7 +17,7 @@ which can be much larger than 8 megabytes. as a downside, it's slightly slower t
 
 `free(void *ptr)` Frees the heap space pointed by ptr
 
-what you need to know: dynamically allocating memory stores the 'information' in the heap instead of the stack (pictured below). to free this information stored in the heap, you use the `free()` function.
+what you need to know: dynamically allocating memory stores the 'information' into the heap instead of the stack (pictured below). to "free" this information stored in the heap, you use the `free()` function.
 
 ![imgonline-com-ua-Negative-4gopK6gZcTtQhf](https://user-images.githubusercontent.com/114739901/201462030-bd1b09a0-2615-4823-aeaf-5b010e4077ab.jpg)
 
