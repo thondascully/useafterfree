@@ -43,4 +43,4 @@ when you call `free(x)`, it does not _remove_ the memory chunk (with a unique ad
 
 > note: different types of caches/bins exist. [tcache](https://sourceware.org/glibc/wiki/MallocInternals#Thread_Local_Cache_.28tcache.29) and [fast bins](https://sourceware.org/glibc/wiki/MallocInternals#Arenas_and_Heaps) are considered "in use", so they will not merge with adjacent freed chunks. 
 
-
+a quick refresher on tcache: 
