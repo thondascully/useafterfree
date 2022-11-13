@@ -6,7 +6,7 @@ any given program starts at a location in that 'storage', and the stack specific
 the stack is fast to access, but it's only around 8 MB of space. in comparison, the heap is for dynamically allocated memory,
 which can be much larger than 8 megabytes. as a downside, it's slightly slower to access (and you have to free the allocated memory manually)
 
-> note: allocating on the stack is faster than to the heap (freeing also takes some time in heap malloc), but once a chunk of information is allocated on to the heap, it can be used with the same speed as the stack! realistically, this heavily depends on usage pattern because modern systems utilize caches (which allow for very fast access if all the data you use are placed close together in memory). for example, a linked list may have its node living at arbitrary spots on the heap, which will usually trash cache often, but a contiguous array will store its elements next to each other, and so iterating through elements is fast.
+> note: allocating to the stack is faster than to the heap (freeing also takes some time in heap malloc), but once a chunk of information is allocated to the heap, it can be used with the same speed as information on the stack. realistically, this heavily depends on usage pattern because modern systems utilize caches (which allow for very fast access if all the data you use are placed close together in memory). for example, a linked list may have its node living at arbitrary spots on the heap, which will usually trash cache often, but a contiguous array will store its elements next to each other, and so iterating through elements is fast.
 
 
 ### dynamically allocated memory: memory allocated during runtime. 
