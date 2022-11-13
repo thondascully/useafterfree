@@ -29,7 +29,7 @@ haha! probably not what you think! actually, i will get back to this. first, let
 
 ![imgonline-com-ua-Negative-nZlejKCn83UXN](https://user-images.githubusercontent.com/114739901/201462075-3fa59d9f-0164-440e-bd15-5cb12e2a6f49.jpg)
 
-In this example, i've allocated memory in the heap, and the address to each respective chunk of memory is stored in `x` and `y`. if i use `free(x)` or `free(y)`, it does not _remove_ the allocated memory from the heap (this is the counterintuitive part)! Instead of _removing_ the allocated chunk of memory from the heap, the heap manager will put the same chunk of memory into a cache and label it as "available for usage". This is scuffed! It is also optimal! the reusage and recycling of memory is what helps your computer not explode over time.
+In this example, i've allocated memory in the heap, and the address to each respective chunk of memory is stored in `x` and `y`. if i use `free(x)` or `free(y)`, it does not _remove_ the allocated memory from the heap (this is the counterintuitive part)! a computer can either store or retrieve a value, not delete (although, storing a value can replace the previous value, inherently destroying the previous contents of the memory cell. this is still different than removing a chunk of memory of the heap). Instead of _removing_ the allocated chunk of memory from the heap, the heap manager will put the same chunk of memory into a cache and label it as "available for usage". This is scuffed! It is also optimal! the reusage and recycling of memory is what helps your computer not explode over time.
 
 > note: `x` and `y` are pointers to an arbitrary location (with a unique address) of 0x10 bytes of allocated memory in the heap
 
