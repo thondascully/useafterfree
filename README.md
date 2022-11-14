@@ -62,6 +62,6 @@ in the context of the `x` pointer created above, a call of `free(x)` stores the 
 
 > note: the `memory chunk stored in cache after being freed` is now labeled as `available for usage` by the computer.
 
-one of the key things for this exploit is realizing that `x` still points to the same memory chunk address in the heap despite `x` being freed. therefore, **when new memory is allocated of the same byte size as `x`, the manager will check the tcache to see if a chunk of that size exists (which it does) and 'assigns' that chunk to the new pointer of the allocated memory (`y` in this case).**
+one of the key things for this exploit is realizing that `x` still points to the same memory chunk address in the heap despite `x` being freed. therefore, **when `y = malloc(0x10);` is called and new memory is allocated of the same byte size as `x`, the manager will check the tcache to see if a chunk of that size exists (which is true now) and then 'assigns' that chunk to the new pointer of the allocated memory (`y` in this case).**
 
 **because `x` still points to the same address that `y`'s chunk exists at, they both are pointing to the same memory chunk.**
