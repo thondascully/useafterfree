@@ -54,3 +54,6 @@ each thread has 64 different [singly-linked-list](https://www.geeksforgeeks.org/
 
 if the memory chunk is of size 16 bytes, it will get cached in the bytes 0..24 bin (24). likewise, if 24 bytes, then bytes 0..24 bin (24). in comparison, a 32 byte chunk would get stored in the bytes 24..40 bin (40). Only [seven](https://sourceware.org/git/?p=glibc.git;a=blob;f=malloc/malloc.c;h=2527e2504761744df2bdb1abdc02d936ff907ad2;hb=d5c3fafc4307c9b7a4c7d5cb381fcdbfad340bcc#l323) different chunks can be stored within each sized bin.
 
+### what happens when you `free()` (revisited):
+
+![imgonline-com-ua-Negative-RE39sSX6e9f9yyp](https://user-images.githubusercontent.com/114739901/201523166-51523bed-ba5d-4463-b764-2f73fe7bdcd5.jpg)
