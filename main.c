@@ -64,7 +64,7 @@ int main() {
     /**
      * cool part :)
     */
-    printf("\nsince x and y are pointing to the same chunk, changing the chunk's value through *x will change *y's value therefore, printing *y will output *x's value, as they are pulling from the same source of information despite no direct value assignment to *y\n");
+    printf("\nsince x and y are pointing to the same chunk, changing the chunk's value through *x will change *y's pull value. therefore, printing *y will output *x's value, as they are pulling from the same source of information (despite no direct value assignment to *y)\n");
     printf("\ny: %d\n", *y);
  
     return 1;
