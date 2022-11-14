@@ -52,5 +52,5 @@ each thread has 64 different [singly-linked-list](https://www.geeksforgeeks.org/
 
 ![imgonline-com-ua-Negative-YUDczypxbprTp](https://user-images.githubusercontent.com/114739901/201523182-01b21237-b745-447c-bf03-58bea5a3908c.jpg)
 
-if the memory chunk is of size `16 bytes`, it will get cached in the `bytes 0..24` bin. likewise, if `24 bytes`, `bytes 0..24` bin. in comparison, `32 bytes` would get stored in the `bytes 24..40` bin (40). Only [seven](https://sourceware.org/git/?p=glibc.git;a=blob;f=malloc/malloc.c;h=2527e2504761744df2bdb1abdc02d936ff907ad2;hb=d5c3fafc4307c9b7a4c7d5cb381fcdbfad340bcc#l323) different chunks can be stored within each sized bin.
+if the memory chunk is of size 16 bytes, it will get cached in the bytes 0..24 bin (24). likewise, if 24 bytes, then bytes 0..24 bin (24). in comparison, a 32 byte chunk would get stored in the bytes 24..40 bin (40). Only [seven](https://sourceware.org/git/?p=glibc.git;a=blob;f=malloc/malloc.c;h=2527e2504761744df2bdb1abdc02d936ff907ad2;hb=d5c3fafc4307c9b7a4c7d5cb381fcdbfad340bcc#l323) different chunks can be stored within each sized bin.
 
