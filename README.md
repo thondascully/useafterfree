@@ -56,4 +56,12 @@ if the memory chunk is of size 16 bytes, it will get cached in the bytes 0..24 b
 
 ### what happens when you `free()` (revisited):
 
+in the context of the `x` pointer created above, a call of `free(x)` stores the memory chunk in a cache (specific cache bin depends on byte size of chunk) and labels the chunk as 'available for usage', allowing for the same chunk and address to be used by another memory allocation process.
+
 ![imgonline-com-ua-Negative-RE39sSX6e9f9yyp](https://user-images.githubusercontent.com/114739901/201523166-51523bed-ba5d-4463-b764-2f73fe7bdcd5.jpg)
+
+> note: the `memory chunk stored in cache after being freed` is now labeled as `available for usage` by the computer.
+
+one of the key things for this exploit is realizing that `x` still points to the same memory chunk address in the heap despite `x` being freed. therefore, **when new memory is allocated of the same byte size as `x`, the manager will check the tcache to see if a chunk of that size exists (which it does) and 'assigns' that chunk to the new pointer of the allocated memory (`y` in this case).**
+
+**because `x` still points to the same address that `y`'s chunk exists at, they both are pointing to the same memory chunk.**
