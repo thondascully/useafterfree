@@ -67,3 +67,13 @@ the most important part for this exploit is understanding that `x` still points 
 **...because `x` still points to the same address that `y`'s chunk exists at, they both are pointing to the same memory chunk.**
 
 therefore, changing the value of the chunk that `x` is pointing to will directly change the value that `y` is pulling from. tada!
+
+sources: 
+
+[glibc.git / malloc / malloc.c](https://sourceware.org/git/?p=glibc.git;a=blob;f=malloc/malloc.c;h=2527e2504761744df2bdb1abdc02d936ff907ad2;hb=d5c3fafc4307c9b7a4c7d5cb381fcdbfad340bcc#l315)
+
+[glibcwiki / mallocinternals](https://sourceware.org/glibc/wiki/MallocInternals)
+
+[CS6265 gt understanding heap bugs](https://tc.gts3.org/cs6265/2019/tut/tut09-01-heap.html)
+
+[understanding the glibc heap implementation](https://azeria-labs.com/heap-exploitation-part-2-glibc-heap-free-bins/)
