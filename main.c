@@ -34,11 +34,38 @@ int main() {
     y = malloc(0x10);
 
     /**
+     * exactly as expected, the address of both x and y are the same!
+     * this means that they are pointing to the same chunk! 
+     * therefore, if we change the value of the chunk x points to, 
+     * we are also changing the value of the chunk that y pulls from.
+     *
+     * this is a way of manipulating a variable without directly touching it.
+    */
+    printf("\naddress of x: %p\n", x);
+    printf("address of y: %p\n", y);
+
+    /**
      * assign a value of 50 to the memory chunk in question.
     */
     *y = 50;
 
-    printf("y: %d\n", y);
+    /**
+     * verify that the value of the chunk y is pointing to is 50.
+    */    
+    printf("\ny: %d\n", *y);
+
+    /**
+     * since x and y are pointing to the same chunk, assigning a value to x's chunk
+     * will also change the value of y's chunk.
+    */
+    *x = 20515;
+    printf("\n*x is now set to %d\nkeep in mind that x and y are pointing to the same chunk...\n", *x);
     
+    /**
+     * cool part :)
+    */
+    printf("\nsince x and y are pointing to the same chunk, changing the chunk's value through *x will change *y's value therefore, printing *y will output *x's value, as they are pulling from the same source of information despite no direct value assignment to *y\n");
+    printf("\ny: %d\n", *y);
+ 
     return 1;
 }
