@@ -6,32 +6,39 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 
-int *arbitrary_chunk;
-int *value;
+// x and y exist as pointers to nothing at the moment.
+int *x;
+int *y;
 
 int main() {
-    int inp;
-    arbitrary_chunk = NULL;
-    value = NULL;
 
-    while (1) {
-        printf("\n1: create chunk\n");
-        printf("2: free chunk\n");
-        printf("3: assign value to chunk\n");
-        printf("4: check to see if correct value\n");
+    /**
+     * x is now a pointer to an arbitrarily located 16 byte of memory.
+     * because memory is allocated dynamically (malloc), the location of this chunk is on the heap.
+    */
+    x = malloc(0x10);
 
-        scanf("%d", &inp);
+    /**
+     * the chunk that x is pointing to is now stored in tcache in the byte 0..24 bin.
+    */
+    free(x);
 
-        switch (inp) {
-            case(1) : create_chunk();
-            case(2) : free_chunk();
-            case(3) : assign_to_chunk();
-            case(4) : verify_chunk_value();
-            default : continue;
-        }
-    }
+    /**
+     * to optimize for speed, the heap manager will check to see if a chunk of memory of the same
+     * size exists in the tcache. it does. therefore, that 'available for usage' tcache chunk
+     * is the new chunk that y is now pointing to.
+     * 
+     * note: the x pointer is still pointing to the address of the memory chunk in question..!
+    */
+    y = malloc(0x10);
+
+    /**
+     * assign a value of 50 to the memory chunk in question.
+    */
+    *y = 50;
+
+    printf("y: %d\n", y);
     
     return 1;
 }
